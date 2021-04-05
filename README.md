@@ -14,4 +14,4 @@ save as `tmp.ipa` and run `python convert.py tmp.ipa`
 
 or double click on the `tmp.ipa`
 
-![Spotify on Mac](https://raw.github.com/Mila432/IPA-to-App-M1/master/1.png)
+![Spotify on Mac](https://raw.github.com/Mila432/IPA-to-App-M1/master/2.png)
