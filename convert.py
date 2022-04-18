@@ -15,14 +15,13 @@ def work(ipafile):
 	appname=None
 	with zipfile.ZipFile(ipafile, 'r') as fzip:
 		for f in fzip.namelist():
-			if '.app' not in f:	continue
-			if appname is None:
+			if appname is None and '.app' in f.split('/')[-2]:
 				appname=f.split('/')[1]
 			fzip.extract(f, 'tmp')
 	fixts(ipafile,'tmp')
 	pwd=os.getcwd()
 	os.chdir('tmp')
-	os.chmod(r'Payload/%s/%s'%(appname,appname.split('.')[0]), 0777)
+	os.chmod(r'Payload/%s/%s'%(appname,appname.split('.')[0]), 0o777)
 	os.rename('Payload','Wrapper')
 	os.symlink('Wrapper/%s'%(appname),'WrappedBundle')
 	os.chdir(pwd)
